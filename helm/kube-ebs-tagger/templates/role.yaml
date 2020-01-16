@@ -12,18 +12,21 @@ rules:
   verbs:
   - get
 - apiGroups:
-  - "apps"
-  resources:
-  - replicasets
-  verbs:
-  - get
-- apiGroups:
   - ""
   resources:
   - configmaps
+  - services
   verbs:
   - get
   - create
+- apiGroups:
+  - apps
+  resources:
+  - replicasets
+  - deployments
+  verbs:
+  - get
+
 - apiGroups:
   - ""
   resources:
@@ -33,11 +36,3 @@ rules:
   - get
   - list
   - watch
-- apiGroups:
-  - ""
-  resources:
-  - '*'
-  verbs:
-  - 'list'
-  - 'watch'
-  - 'get'

@@ -4,6 +4,7 @@ image:
   repository: sstarcher/kube-ebs-tagger
   pullPolicy: Always
 
+podAnnotations: {}
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
