@@ -1,6 +1,6 @@
 apiVersion: v2
 name: kube-ebs-tagger
-description: A Helm chart for Kubernetes
+description: Tags AWS EBS volumes with lables from the Persistent Volume and Persistent Volume Claim
 type: application
 version: 0.1.0
 appVersion: latest
