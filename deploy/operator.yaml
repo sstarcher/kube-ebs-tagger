@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kube-ebs-tagger
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: kube-ebs-tagger
+  template:
+    metadata:
+      labels:
+        name: kube-ebs-tagger
+    spec:
+      serviceAccountName: kube-ebs-tagger
+      containers:
+        - name: kube-ebs-tagger
+          image: sstarcher/kube-ebs-tagger:latest
+          command:
+          - kube-ebs-tagger
+          imagePullPolicy: Always
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: OPERATOR_NAME
+              value: "kube-ebs-tagger"

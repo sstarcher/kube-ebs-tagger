@@ -1,0 +1,35 @@
+replicaCount: 1
+
+image:
+  repository: sstarcher/kube-ebs-tagger
+  pullPolicy: Always
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  name:
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+resources:
+  requests:
+    cpu: 1m
+    memory: 10m
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

@@ -1,0 +1,14 @@
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: kube-ebs-tagger
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - persistentvolume
+  - persistentvolumeclaims
+  verbs:
+  - get
+  - list
+  - watch
