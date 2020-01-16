@@ -4,7 +4,6 @@ go 1.13
 
 require (
 	github.com/aws/aws-sdk-go v1.17.7
-	github.com/coreos/etcd v3.3.15+incompatible
 	github.com/operator-framework/operator-sdk v0.14.0
 	github.com/spf13/pflag v1.0.5
 	k8s.io/api v0.0.0

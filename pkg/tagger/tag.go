@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 
+	"github.com/aws/aws-sdk-go/aws/ec2metadata"
 	"github.com/aws/aws-sdk-go/service/ec2"
 )
 
@@ -14,10 +15,18 @@ var sess *session.Session
 
 func init() {
 	var err error
-	sess, err = session.NewSession()
+
+	metaSession, _ := session.NewSession()
+	metaClient := ec2metadata.New(metaSession)
+	region, _ := metaClient.Region()
+
+	sess, err = session.NewSession(&aws.Config{
+		Region: &region,
+	})
 	if err != nil {
 		log.Fatalf("%v", err)
 	}
+
 }
 
 // Tag syncs ebs volume tags
