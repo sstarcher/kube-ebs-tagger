@@ -4,11 +4,24 @@ metadata:
   name: kube-ebs-tagger
 rules:
 - apiGroups:
-  - ""
+  - "apps"
   resources:
-  - persistentvolume
-  - persistentvolumeclaims
+  - replicasets
+  - deployments
   verbs:
   - get
-  - list
-  - watch
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  verbs:
+  - get
+- apiGroups:
+  - ""
+  resources:
+  - configmaps
+  - services
+  verbs:
+  - get
+  - create
+  - update
