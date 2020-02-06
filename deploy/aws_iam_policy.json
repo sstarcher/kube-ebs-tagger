@@ -1,0 +1,25 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeVolumes"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeTags",
+                "ec2:CreateTags",
+                "ec2:DeleteTags"
+            ],
+            "Resource": [
+                "arn:aws:ec2:*:*:volume/*"
+            ]
+        }
+    ]
+}
