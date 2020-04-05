@@ -1,0 +1,3 @@
+builds:
+  - main: ./cmd/manager/main.go
+
